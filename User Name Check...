@@ -1,0 +1,47 @@
+
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+int isValiedUserName(const char *username)
+{
+    int length =strlen(username);
+if(length<5 || length>12)
+{
+    return 0;
+}
+
+    for(int i=0;i<length;++i)
+    {
+        if(!isalnum(username[i]))
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    char username[100];
+    
+    printf(" Enter a User Name :");
+    fgets(username,sizeof(username),stdin);
+for(int i=0;username[i];i++)
+{
+if(username[i]=='\n')
+{
+    username[i]=='\0';
+    break;
+}
+
+}
+ if(isValiedUserName(username))
+{
+    printf("Invalied User Name..");
+    
+}
+else
+{
+    printf("valied User Name..");
+}
+return 0;
+}
